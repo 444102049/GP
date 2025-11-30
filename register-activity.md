@@ -1,14 +1,12 @@
 ```mermaid
 flowchart TD
 
-    %% البداية
     A([Start]) --> B[Show_Login_Register]
 
-    %% قرار: عنده حساب او لا؟
     B --> C{Existing_user?}
 
-    %% مسار التسجيل Register
-    C -->|No (Register)| R1[Input_New_Data]
+    %% Register path
+    C -->|No| R1[Input_New_Data]
     R1 --> R2[Validate_Reg]
     R2 --> R3{Email_Used?}
     R3 -->|Yes| R4[Show_Email_Error]
@@ -17,8 +15,8 @@ flowchart TD
     R5 --> R6[Create_Session]
     R6 --> E([End])
 
-    %% مسار تسجيل الدخول Login
-    C -->|Yes (Login)| L1[Input_Credentials]
+    %% Login path
+    C -->|Yes| L1[Input_Credentials]
     L1 --> L2[Validate_Login]
     L2 --> L3{Valid?}
     L3 -->|No| L4[Show_Login_Error]
