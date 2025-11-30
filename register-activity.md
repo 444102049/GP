@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A([Start]) --> B[Display Register or Login page]
 
@@ -16,8 +17,4 @@ flowchart TD
     %% Login path
     C -->|Login| L1[Enter email and password]
     L1 --> L2[Validate login data]
-    L2 --> LQ{Are credentials valid?}
-    LQ -->|No| L3[Show Invalid email or password error]
-    L3 --> B
-    LQ -->|Yes| L4[Create user session]
-    L4 --> E
+    L2 --> LQ{Are credentials val
