@@ -1,20 +1,24 @@
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Display Register or Login page]
+    A([Start]) --> B[Show_Login_Register]
 
-    B --> C{Did the user choose Register or Login?}
+    B --> C{Choose?}
 
     %% Register path
-    C -->|Register| R1[Enter new user data: name, email, phone, password]
-    R1 --> R2[Validate registration data]
-    R2 --> RQ{Is email already used?}
-    RQ -->|Yes| R3[Show Email already exists error]
-    R3 --> B
-    RQ -->|No| R4[Create new account]
-    R4 --> R5[Create user session]
-    R5 --> E([End])
+    C -->|Register| R1[Input_New_Data]
+    R1 --> R2[Validate_Reg]
+    R2 --> R3{Email_Used?}
+    R3 -->|Yes| R4[Show_Email_Error]
+    R4 --> B
+    R3 -->|No| R5[Create_Account]
+    R5 --> R6[Create_Session]
+    R6 --> E([End])
 
     %% Login path
-    C -->|Login| L1[Enter email and password]
-    L1 --> L2[Validate login data]
-    L2 --> LQ{Are credentials val
+    C -->|Login| L1[Input_Credentials]
+    L1 --> L2[Validate_Login]
+    L2 --> L3{Valid?}
+    L3 -->|No| L4[Show_Login_Error]
+    L4 --> B
+    L3 -->|Yes| L5[Create_Session]
+    L5 --> E
